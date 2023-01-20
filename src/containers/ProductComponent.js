@@ -6,23 +6,28 @@ const ProductComponent = () => {
   // products is the result of using the useSelector method to get state and return the nested array
   const products = useSelector((state) => state.allProducts.products);
   
-  // using destructuring on the object at products[0] to make the props {id, title} available directly
-  // const {id, title} = products[0];
-
-  return (
-    <div className="four column wide">
-      <div className="ui link cards">
-        <div className="card">Lorem ipsum
-          <div className="image">
-            <img src="" alt="" />
-            <div className="content">
-              {/* title is a prop from state that we are rendering to the view */}
-              {/* <div className="header">{title}</div> */}
+  const renderList = products.map((product) => {
+    const {id, title, image, price, category} = product;
+    return (
+      <div className="four wide column" key={id}>
+        <div className="ui cards link">
+          <div className="card">
+            <div className="image">
+              <img src={image} alt={title} />
+              <div className="content">
+                <div className="header">{title}</div>
+                <div className="meta price">$ {price}</div>
+                <div className="meta">{category}</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
+    );
+  })
+
+  return (
+    <>{renderList}</>
   )
 };
 
