@@ -7,17 +7,17 @@ const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
   
   // using destructuring on the object at products[0] to make the props {id, title} available directly
-  const {id, title} = products[0];
+  // const {id, title} = products[0];
 
   return (
     <div className="four column wide">
       <div className="ui link cards">
-        <div className="card">
+        <div className="card">Lorem ipsum
           <div className="image">
             <img src="" alt="" />
             <div className="content">
               {/* title is a prop from state that we are rendering to the view */}
-              <div className="header">{title}</div>
+              {/* <div className="header">{title}</div> */}
             </div>
           </div>
         </div>
